@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="机器学习," />
 
 
 
@@ -79,13 +79,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="夏秋冬">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="《机器学习实战》读书笔记1：K-近邻(kNN)算法 &amp;amp; 源码分析K-近邻算法的介绍及一般步骤什么是K-近邻算法简单地说，k-近邻算法采用测量不同特征值之间距离的方法进行分类。不恰当但是形象地可以表述为近朱者赤，近墨者黑。它有如下特点：  优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高 适用数据范围：数值型和标称型  kk-近邻算法的一般流程分为如下 6 个步">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《机器学习实战》阅读笔记 ">
+<meta property="og:url" content="http://yoursite.com/2018/10/02/KNN算法/index.html">
 <meta property="og:site_name" content="夏秋冬">
+<meta property="og:description" content="《机器学习实战》读书笔记1：K-近邻(kNN)算法 &amp;amp; 源码分析K-近邻算法的介绍及一般步骤什么是K-近邻算法简单地说，k-近邻算法采用测量不同特征值之间距离的方法进行分类。不恰当但是形象地可以表述为近朱者赤，近墨者黑。它有如下特点：  优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高 适用数据范围：数值型和标称型  kk-近邻算法的一般流程分为如下 6 个步">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/KNN算法/KNN-1.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/KNN算法/KNN-2.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/02/KNN算法/KNN-3.png">
+<meta property="og:updated_time" content="2018-10-02T14:05:34.936Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="夏秋冬">
+<meta name="twitter:title" content="《机器学习实战》阅读笔记 ">
+<meta name="twitter:description" content="《机器学习实战》读书笔记1：K-近邻(kNN)算法 &amp;amp; 源码分析K-近邻算法的介绍及一般步骤什么是K-近邻算法简单地说，k-近邻算法采用测量不同特征值之间距离的方法进行分类。不恰当但是形象地可以表述为近朱者赤，近墨者黑。它有如下特点：  优点：精度高、对异常值不敏感、无数据输入假定 缺点：计算复杂度高、空间复杂度高 适用数据范围：数值型和标称型  kk-近邻算法的一般流程分为如下 6 个步">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/02/KNN算法/KNN-1.png">
 
 
 
@@ -115,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/02/KNN算法/"/>
 
 
 
 
 
-  <title>夏秋冬</title>
+  <title>《机器学习实战》阅读笔记  | 夏秋冬</title>
   
 
 
@@ -140,8 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +222,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/02/KNN算法/" itemprop="url">《机器学习实战》阅读笔记 </a></h1>
+          <h1 class="post-title" itemprop="name headline">《机器学习实战》阅读笔记 </h1>
         
 
         <div class="post-meta">
@@ -298,9 +304,7 @@
       
 
       
-        
-          
-            <h1 id="《机器学习实战》读书笔记1：K-近邻-kNN-算法-amp-源码分析"><a href="#《机器学习实战》读书笔记1：K-近邻-kNN-算法-amp-源码分析" class="headerlink" title="《机器学习实战》读书笔记1：K-近邻(kNN)算法 &amp; 源码分析"></a>《机器学习实战》读书笔记1：K-近邻(kNN)算法 &amp; 源码分析</h1><h2 id="K-近邻算法的介绍及一般步骤"><a href="#K-近邻算法的介绍及一般步骤" class="headerlink" title="K-近邻算法的介绍及一般步骤"></a>K-近邻算法的介绍及一般步骤</h2><h3 id="什么是K-近邻算法"><a href="#什么是K-近邻算法" class="headerlink" title="什么是K-近邻算法"></a>什么是K-近邻算法</h3><p>简单地说，k-近邻算法采用测量不同特征值之间距离的方法进行分类。不恰当但是形象地可以表述为<strong>近朱者赤，近墨者黑</strong>。它有如下特点：</p>
+        <h1 id="《机器学习实战》读书笔记1：K-近邻-kNN-算法-amp-源码分析"><a href="#《机器学习实战》读书笔记1：K-近邻-kNN-算法-amp-源码分析" class="headerlink" title="《机器学习实战》读书笔记1：K-近邻(kNN)算法 &amp; 源码分析"></a>《机器学习实战》读书笔记1：K-近邻(kNN)算法 &amp; 源码分析</h1><h2 id="K-近邻算法的介绍及一般步骤"><a href="#K-近邻算法的介绍及一般步骤" class="headerlink" title="K-近邻算法的介绍及一般步骤"></a>K-近邻算法的介绍及一般步骤</h2><h3 id="什么是K-近邻算法"><a href="#什么是K-近邻算法" class="headerlink" title="什么是K-近邻算法"></a>什么是K-近邻算法</h3><p>简单地说，k-近邻算法采用测量不同特征值之间距离的方法进行分类。不恰当但是形象地可以表述为<strong>近朱者赤，近墨者黑</strong>。它有如下特点：</p>
 <ul>
 <li>优点：精度高、对异常值不敏感、无数据输入假定</li>
 <li>缺点：计算复杂度高、空间复杂度高</li>
@@ -341,8 +345,6 @@
 <h2 id="代码集合"><a href="#代码集合" class="headerlink" title="代码集合"></a>代码集合</h2><p>以下为以上所有代码无注释版本的集合</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> operator</span><br><span class="line"><span class="keyword">import</span> matplotlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">createDataSet</span><span class="params">()</span>:</span></span><br><span class="line">    group = array([[<span class="number">1.0</span>, <span class="number">1.1</span>],[<span class="number">1.0</span>, <span class="number">1.0</span>],[<span class="number">1.4</span>,<span class="number">1.3</span>],[<span class="number">0</span>, <span class="number">0</span>],[<span class="number">0</span>, <span class="number">0.1</span>]])</span><br><span class="line">    labels = [<span class="string">'A'</span>, <span class="string">'A'</span>, <span class="string">'A'</span>,<span class="string">'B'</span>, <span class="string">'B'</span>]</span><br><span class="line">    <span class="keyword">return</span> group, labels</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classify0</span><span class="params">(inX, dataSet, labels, k)</span>:</span></span><br><span class="line">    dataSetSize = dataSet.shape[<span class="number">0</span>]</span><br><span class="line">    diffMat = tile(inX, (dataSetSize,<span class="number">1</span>)) - dataSet</span><br><span class="line">    sqDiffmat = diffMat **<span class="number">2</span></span><br><span class="line">    sqDistances = sqDiffmat.sum(axis = <span class="number">1</span>)</span><br><span class="line">    distances =  sqDistances**<span class="number">0.5</span></span><br><span class="line">    sortedDistIndicies = distances.argsort()</span><br><span class="line">    classCount = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        voteIlabe1 = labels[sortedDistIndicies[i]]</span><br><span class="line">        classCount[voteIlabe1] = classCount.get(voteIlabe1,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    sortedClassCount = sorted(classCount.items(),</span><br><span class="line">        key = operator.itemgetter(<span class="number">1</span>), reverse = <span class="keyword">True</span>)</span><br><span class="line">    <span class="keyword">return</span> sortedClassCount[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">file2matrix</span><span class="params">(filename)</span>:</span></span><br><span class="line">    fr = open(filename)</span><br><span class="line">    arrayOLines = fr.readlines()</span><br><span class="line">    numberOfLines = len(arrayOLines)</span><br><span class="line">    returnMat = zeros((numberOfLines,<span class="number">3</span>))</span><br><span class="line">    classLabelVector = []</span><br><span class="line">    index = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> arrayOLines:</span><br><span class="line">        line = line.strip()</span><br><span class="line">        listFromLine = line.split(<span class="string">'\t'</span>)</span><br><span class="line">        returnMat[index,:] = listFromLine[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">        classLabelVector.append(int(listFromLine[<span class="number">-1</span>]))</span><br><span class="line">        index += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> returnMat, classLabelVector</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">autoNorm</span><span class="params">(dataSet)</span>:</span></span><br><span class="line">    minVals = dataSet.min(<span class="number">0</span>)</span><br><span class="line">    maxVals = dataSet.max(<span class="number">0</span>)</span><br><span class="line">    ranges = maxVals - minVals</span><br><span class="line">    normDataSet = zeros(shape(dataSet))</span><br><span class="line">    m = dataSet.shape[<span class="number">0</span>]</span><br><span class="line">    normDataSet = dataSet - tile(minVals, (m, <span class="number">1</span>))</span><br><span class="line">    normDataSet = normDataSet / tile(ranges, (m, <span class="number">1</span>))</span><br><span class="line">    <span class="keyword">return</span> normDataSet, ranges, minVals</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">datingClassTest</span><span class="params">()</span>:</span></span><br><span class="line">    hoRation = <span class="number">0.10</span></span><br><span class="line">    datingDataMat,datingLabels = file2matrix(<span class="string">'./machinelearninginaction/Ch02/datingTestSet2.txt'</span>)</span><br><span class="line">    normMat, ranges, minVals = autoNorm(datingDataMat)</span><br><span class="line">    m = normMat.shape[<span class="number">0</span>]</span><br><span class="line">    numTestVecs = int (m * hoRation)</span><br><span class="line">    errorCount = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numTestVecs):</span><br><span class="line">        classifierResult = classify0(normMat[i, : ], normMat[numTestVecs:m,:], \</span><br><span class="line">                                     datingLabels[numTestVecs:m],<span class="number">3</span>)</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'the classirier came back with: %d, the real answer is: %d'</span>\</span><br><span class="line">               % (classifierResult, datingLabels[i]))</span><br><span class="line">        <span class="keyword">if</span> (classifierResult != datingLabels[i]): errorCount += <span class="number">1.0</span></span><br><span class="line">    print(<span class="string">'the total error rate is: %f'</span> % (errorCount/float(numTestVecs)))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">classifyPerson</span><span class="params">()</span>:</span></span><br><span class="line">    resultList = [<span class="string">'not at all'</span>, <span class="string">'in small doses'</span>, <span class="string">'in large doses'</span>]</span><br><span class="line">    percentTats = float(input(<span class="string">'percentage of time spent playing video game?'</span>))</span><br><span class="line">    ffMiles = float(input(<span class="string">'frequrnt flier miles earned per year?'</span>))</span><br><span class="line">    iceCream = float(input(<span class="string">'liters of ice cream consumed per year?'</span>))</span><br><span class="line">    datingDataMat,datingLabels = file2matrix(<span class="string">'./machinelearninginaction/Ch02/datingTestSet2.txt'</span>)</span><br><span class="line">    normMat, ranges, minVals = autoNorm(datingDataMat)</span><br><span class="line">    inArr = array([ffMiles, percentTats, iceCream])</span><br><span class="line">    classifierResult = classify0((inArr - minVals) / ranges, normMat, datingLabels, <span class="number">3</span>)</span><br><span class="line">    print(<span class="string">'You will probably like this person: '</span>, resultList[classifierResult - <span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeFigure</span><span class="params">()</span>:</span></span><br><span class="line">    fig = plt.figure()	</span><br><span class="line">    ax = fig.add_subplot(<span class="number">111</span>)</span><br><span class="line">    datingDataMat,datingLabels = file2matrix(<span class="string">'./machinelearninginaction/Ch02/datingTestSet2.txt'</span>)</span><br><span class="line">    ax.scatter(datingDataMat[:,<span class="number">1</span>], datingDataMat[:,<span class="number">2</span>],</span><br><span class="line">    <span class="number">15.0</span> * array(datingLabels), <span class="number">15.0</span>*array(datingLabels))</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    classifyPerson()</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -357,14 +359,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -374,10 +382,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -385,6 +394,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -405,8 +418,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -457,6 +479,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#《机器学习实战》读书笔记1：K-近邻-kNN-算法-amp-源码分析"><span class="nav-number">1.</span> <span class="nav-text">《机器学习实战》读书笔记1：K-近邻(kNN)算法 &amp; 源码分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#K-近邻算法的介绍及一般步骤"><span class="nav-number">1.1.</span> <span class="nav-text">K-近邻算法的介绍及一般步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是K-近邻算法"><span class="nav-number">1.1.1.</span> <span class="nav-text">什么是K-近邻算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kk-近邻算法的一般流程分为如下-6-个步骤："><span class="nav-number">1.2.</span> <span class="nav-text">kk-近邻算法的一般流程分为如下 6 个步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法实现"><span class="nav-number">1.3.</span> <span class="nav-text">算法实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先给出伪代码"><span class="nav-number">1.3.1.</span> <span class="nav-text">首先给出伪代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python实现代码"><span class="nav-number">1.3.2.</span> <span class="nav-text">python实现代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将文本记录转换为Numpy的解析程序"><span class="nav-number">1.4.</span> <span class="nav-text">将文本记录转换为Numpy的解析程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将获取到的数据，使用Matplotlib创建散点图"><span class="nav-number">1.5.</span> <span class="nav-text">将获取到的数据，使用Matplotlib创建散点图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#准备数据：归一化数值"><span class="nav-number">1.6.</span> <span class="nav-text">准备数据：归一化数值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构建完整可用的系统"><span class="nav-number">1.7.</span> <span class="nav-text">构建完整可用的系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码集合"><span class="nav-number">1.8.</span> <span class="nav-text">代码集合</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -590,6 +628,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
